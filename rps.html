@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Rocko-Papero-Scissoro</title>
+
+	<script type="text/javascript">
+
+		let playerScore = 0;
+		let computerScore = 0;
+		
+		function computerPlay() {
+			let computerChoices = ['ROCK', 'PAPER', 'SCISSORS'];
+			return computerChoices[Math.floor (Math.random() * 3)];
+		}
+
+		function playRound(playerSelection, computerSelection) {
+
+			if (!playerSelection) {
+				return "Please Enter a Choice!"
+			} else if (playerSelection === "ROCK" && computerSelection === "ROCK") {
+				return "It's A Draw!";
+			} else if (playerSelection === "ROCK" && computerSelection === "PAPER"){
+				return "Computer Wins!";
+				computerScore++;
+			} else if (playerSelection === "ROCK" && computerSelection === "SCISSORS") {
+				return "Player Wins!";
+				playerScore++;
+			} else if (playerSelection === "PAPER" && computerSelection === "ROCK") {
+				return "Player Wins!";
+				playerScore++;
+			} else if (playerSelection === "PAPER" && computerSelection === "PAPER") {
+				return "It's A Draw!";
+			} else if (playerSelection === "PAPER" && computerSelection === "SCISSORS") {
+				return "Computer Wins!";
+				computerScore++;
+			} else if (playerSelection === "SCISSORS" && computerSelection === "ROCK") {
+				return "Computer Wins!";
+				computerScore++;
+			} else if (playerSelection === "SCISSORS" && computerSelection === "PAPER") {
+				return "Player Wins!";
+				playerScore++;
+			} else if (playerSelection === "SCISSORS" && computerSelection === "SCISSORS") {
+				return "It's A Draw!";
+			}
+
+		}
+
+		function game() {
+			for (var i = 0; i <= 5; i++) {
+				//playRound(playerSelection, computerSelection);
+				console.log(playRound(playerSelection, computerSelection));
+			}
+
+			if (playerScore > computerScore) {
+				return "Player Wins the Tournament!";
+			} else {
+				return "Computer Wins the Tournament!"
+			}
+		}
+
+		const playerChoice = prompt("Please Enter Rock, Paper Or Scrissors: ");
+		const playerSelection = playerChoice.toUpperCase();
+		const computerSelection = computerPlay();
+		//console.log(playRound(playerSelection, computerSelection));
+		console.log(game());
+
+	</script>
+
+</head>
+<body>
+
+</body>
+</html>
